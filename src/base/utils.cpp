@@ -1,7 +1,5 @@
 #include "base/utils.h"
 
-#include <cstdint>
-
 namespace Ramulator {
 
 
