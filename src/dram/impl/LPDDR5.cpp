@@ -368,7 +368,7 @@ class LPDDR5 : public IDRAM, public Implementation {
           {.level = "rank", .preceding = {"RD16A"}, .following = {"REFab"}, .latency = V("nRPpb") + V("nRTP")},          
           {.level = "rank", .preceding = {"WR16A"}, .following = {"REFab"}, .latency = V("nCWL") + V("nBL16") + V("nWR") + V("nRPpb")},          
           {.level = "rank", .preceding = {"REFab"}, .following = {"REFab", "ACT-1", "REFpb"}, .latency = V("nRFCab")},          
-          {.level = "rank", .preceding = {"ACT-1"},   .following = {"REFpb"}, .latency = V("nPBR2ACT")},  
+          {.level = "rank", .preceding = {"REFpb"},   .following = {"ACT-1"}, .latency = V("nPBR2ACT")},  
           {.level = "rank", .preceding = {"REFpb"}, .following = {"REFpb"}, .latency = V("nPBR2PBR")},  
 
           /*** Same Bank Group ***/ 
@@ -399,17 +399,17 @@ class LPDDR5 : public IDRAM, public Implementation {
 
       // Rank Actions
       m_actions[m_levels["rank"]][m_commands["PREA"]] = Lambdas::Action::Rank::PREab<LPDDR5>;
-      m_actions[m_levels["rank"]][m_commands["CASRD"]] = [] (Node* node, int cmd, int target_id, Clk_t clk) {
-        node->m_final_synced_cycle = clk + m_timings["nCL"] + m_timings["nBL16"] + 1; 
+      m_actions[m_levels["rank"]][m_commands["CASRD"]] = [this] (Node* node, int cmd, int target_id, Clk_t clk) {
+        node->m_final_synced_cycle = clk + m_timing_vals("nCL") + m_timing_vals("nBL16") + 1; 
       };
-      m_actions[m_levels["rank"]][m_commands["CASWR"]] = [] (Node* node, int cmd, int target_id, Clk_t clk) {
-        node->m_final_synced_cycle = clk + m_timings["nCWL"] + m_timings["nBL16"] + 1; 
+      m_actions[m_levels["rank"]][m_commands["CASWR"]] = [this] (Node* node, int cmd, int target_id, Clk_t clk) {
+        node->m_final_synced_cycle = clk + m_timing_vals("nCWL") + m_timing_vals("nBL16") + 1; 
       };
-      m_actions[m_levels["rank"]][m_commands["RD16"]] = [] (Node* node, int cmd, int target_id, Clk_t clk) {
-        node->m_final_synced_cycle = clk + m_timings["nCL"] + m_timings["nBL16"]; 
+      m_actions[m_levels["rank"]][m_commands["RD16"]] = [this] (Node* node, int cmd, int target_id, Clk_t clk) {
+        node->m_final_synced_cycle = clk + m_timing_vals("nCL") + m_timing_vals("nBL16"); 
       };
-      m_actions[m_levels["rank"]][m_commands["WR16"]] = [] (Node* node, int cmd, int target_id, Clk_t clk) {
-        node->m_final_synced_cycle = clk + m_timings["nCWL"] + m_timings["nBL16"]; 
+      m_actions[m_levels["rank"]][m_commands["WR16"]] = [this] (Node* node, int cmd, int target_id, Clk_t clk) {
+        node->m_final_synced_cycle = clk + m_timing_vals("nCWL") + m_timing_vals("nBL16"); 
       };
       // Bank actions
       m_actions[m_levels["bank"]][m_commands["ACT-1"]] = [] (Node* node, int cmd, int target_id, Clk_t clk) {
