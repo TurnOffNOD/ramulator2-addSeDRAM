@@ -25,6 +25,7 @@ class DDR4 : public IDRAM, public Implementation {
 
     inline static const std::map<std::string, std::vector<int>> timing_presets = {
       //   name       rate   nBL  nCL  nRCD  nRP   nRAS  nRC   nWR  nRTP nCWL nCCDS nCCDL nRRDS nRRDL nWTRS nWTRL nFAW  nRFC nREFI nCS,  tCK_ps
+      {"myDDR4_ocl",  {3200,   4,  12,  10,   10,   29,   45,   16,   9,   12,   4,    6,   -1,   -1,    3,    9,   -1,  -1,  -1,   2,    833} },
       {"DDR4_1600J",  {1600,   4,  10,  10,   10,   28,   38,   12,   6,   9,    4,    5,   -1,   -1,    2,    6,   -1,  -1,  -1,   2,    1250}},
       {"DDR4_1600K",  {1600,   4,  11,  11,   11,   28,   39,   12,   6,   9,    4,    5,   -1,   -1,    2,    6,   -1,  -1,  -1,   2,    1250}},
       {"DDR4_1600L",  {1600,   4,  12,  12,   12,   28,   40,   12,   6,   9,    4,    5,   -1,   -1,    2,    6,   -1,  -1,  -1,   2,    1250}},
@@ -381,6 +382,7 @@ class DDR4 : public IDRAM, public Implementation {
       };
 
       if (dq_id != -1 && rate_id != -1) {
+        std::cout << "dq_id: " << dq_id << " rate_id: " << rate_id <<std::endl;
         m_timing_vals("nRRDS") = nRRDS_TABLE[dq_id][rate_id];
         m_timing_vals("nRRDL") = nRRDL_TABLE[dq_id][rate_id];
         m_timing_vals("nFAW")  = nFAW_TABLE [dq_id][rate_id];
