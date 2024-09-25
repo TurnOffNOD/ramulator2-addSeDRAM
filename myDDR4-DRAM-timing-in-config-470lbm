@@ -6,11 +6,11 @@ nRFC value: 576
 nREFI value: 12480 
 Frontend:
   impl: SimpleO3
-  memory_access_cycles_recorded_core_0: 127085
-  cycles_recorded_core_0: 451178
-  llc_mshr_unavailable: 5277
-  llc_read_misses: 19429
-  llc_read_access: 19429
+  memory_access_cycles_recorded_core_0: 123783
+  cycles_recorded_core_0: 442236
+  llc_mshr_unavailable: 5331
+  llc_read_misses: 19483
+  llc_read_access: 19483
   llc_write_misses: 100
   llc_write_access: 4533
   llc_eviction: 272
@@ -24,7 +24,7 @@ MemorySystem:
   total_num_other_requests: 0
   total_num_write_requests: 0
   total_num_read_requests: 14248
-  memory_system_cycles: 169192
+  memory_system_cycles: 165839
   DRAM:
     impl: DDR4
   AddrMapper:
@@ -34,30 +34,30 @@ MemorySystem:
   Controller:
     impl: Generic
     id: Channel 0
-    avg_read_latency_0: 46.4892616
-    read_queue_len_avg_0: 3.5488143
+    avg_read_latency_0: 46.7863579
+    read_queue_len_avg_0: 3.64483023
     write_queue_len_0: 0
-    queue_len_0: 625853
+    queue_len_0: 629780
     num_other_reqs_0: 0
     num_write_reqs_0: 0
-    read_latency_0: 662379
-    priority_queue_len_avg_0: 0.150255337
-    row_hits_0: 9437
-    priority_queue_len_0: 25422
-    row_misses_0: 3096
-    row_conflicts_0: 1715
-    read_row_misses_0: 3096
-    queue_len_avg_0: 3.69906974
-    read_row_conflicts_core_0: 1715
-    read_row_hits_0: 9437
+    read_latency_0: 666612
+    priority_queue_len_avg_0: 0.152708352
+    row_hits_0: 9433
+    priority_queue_len_0: 25325
+    row_misses_0: 3090
+    row_conflicts_0: 1725
+    read_row_misses_0: 3090
+    queue_len_avg_0: 3.79753852
+    read_row_conflicts_core_0: 1725
+    read_row_hits_0: 9433
     write_queue_len_avg_0: 0
-    read_row_conflicts_0: 1715
+    read_row_conflicts_0: 1725
     write_row_misses_0: 0
     write_row_conflicts_0: 0
-    read_queue_len_0: 600431
+    read_queue_len_0: 604455
     write_row_hits_0: 0
-    read_row_hits_core_0: 9437
-    read_row_misses_core_0: 3096
+    read_row_hits_core_0: 9433
+    read_row_misses_core_0: 3090
     num_read_reqs_0: 14248
     Scheduler:
       impl: FRFCFS
@@ -67,7 +67,7 @@ MemorySystem:
 
     RowPolicy:
       impl: ClosedRowPolicy
-      num_close_reqs: 2732
+      num_close_reqs: 2735
 
 
 

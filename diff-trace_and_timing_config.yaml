@@ -21,8 +21,30 @@ MemorySystem:
       channel: 1
       rank: 2
     timing:
-      preset: myDDR4_ocl
-      nRC: 30
+      preset: DDR4_3200AC
+#      preset: myDDR4_ocl
+#      rate: 3200
+#      rate: 2500
+#      nBL: 4
+#      nCL: 12
+#      nRCD: 10
+#      nRP: 10
+#      nRAS: 29
+#      nRC: 30
+#      nWR: 16
+#      nRTP: 9
+#      nCWL: 12
+#      nCCDS: 4
+#      nCCDL: 6
+#      nRRDS: 4
+#      nRRDL: 8
+#      nWTRS: 3
+#      nWTRL: 9
+#      nFAW: 34
+#      nRFC: 576
+#      nREFI: 12480
+#      nCS: 2
+#      tCK_ps: 800
 
   Controller:
     impl: Generic

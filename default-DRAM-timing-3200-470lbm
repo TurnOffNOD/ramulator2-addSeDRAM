@@ -1,4 +1,9 @@
 dq_id: 1 rate_id: 6
+nRRDS value: 4 
+nRRDL value: 8 
+nFAW value: 34 
+nRFC value: 576 
+nREFI value: 12480 
 Frontend:
   impl: SimpleO3
   memory_access_cycles_recorded_core_0: 200376
