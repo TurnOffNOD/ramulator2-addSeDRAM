@@ -17,6 +17,8 @@ target_sources(
   impl/HBM.cpp
   impl/HBM2.cpp
   impl/HBM3.cpp
+  
+  impl/SeDRAM.cpp
 )
 
 target_link_libraries(
